@@ -1,15 +1,14 @@
 package hiber.model;
 
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "cars")
 public class Car {
 
     @Id
-    @GeneratedValue(generator = "gen")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "car_id", unique = true, nullable = false)
     private long id;
 
@@ -28,6 +27,22 @@ public class Car {
     public Car(String name, int series) {
         this.name = name;
         this.series = series;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getName() {
